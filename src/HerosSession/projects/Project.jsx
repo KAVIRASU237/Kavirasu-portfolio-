@@ -9,13 +9,12 @@ import portfolioLogo from '../../images/portfolioWebLogo.jpg'
 const Project = () => {
   return (
     <>
-      
       <section id="projects" className={styles.container}>
         <h1 className="sectionTitle">Projects</h1>
         <div className={styles.projectsContainer}>
           <ProjectCard
             src={portfolioLogo}
-            link=""
+            link="https://github.com/KAVIRASU237/Kavirasu-portfolio-"
             h3="PORTFOLIO"
             p=""
             alt="PORTFOLIO LOGO"

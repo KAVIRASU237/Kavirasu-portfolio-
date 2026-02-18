@@ -8,6 +8,7 @@ import calculator from '../../images/calculator logo.webp'
 import portfolioLogo from '../../images/portfolioWebLogo.jpg'
 import kaveririceshop from '../../images/kaveririceshop.png'
 import chatsql from '../../images/chatsqlscreenshot.png'
+import aura from '../../images/aura.png'
 const Project = () => {
   return (
     <>
@@ -18,22 +19,29 @@ const Project = () => {
             src={portfolioLogo}
             link="https://github.com/KAVIRASU237/Kavirasu-portfolio-"
             h3="PORTFOLIO"
-            p=""
+            p="Personal portfolio website"
             alt="PORTFOLIO LOGO"
           />
           <ProjectCard
             src={chatsql}
             link="https://github.com/KAVIRASU237/chat-SQL"
             h3="ChatSQL"
-            p=""
+            p="Offline Natural Language → SQL assistant (RAG + Local LLM)"
             alt="ChatSQL LOGO"
           />
           <ProjectCard
             src={kaveririceshop}
             link="https://kaveri-rice-shop.vercel.app/"
             h3="Kaveri Rice Shop"
-            p=""
+            p="Products selling website for Local shop"
             alt="Kaveri Rice Shop"
+          />
+          <ProjectCard
+            src={aura}
+            link="https://github.com/KAVIRASU237/Personal-tasks"
+            h3="Aura"
+            p="Personal tasks and management"
+            alt="Aura"
           />
           <ProjectCard
             src={QRcodegenerator}

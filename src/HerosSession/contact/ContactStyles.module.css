@@ -1,81 +1,80 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 20px;
 }
- h1{
-     padding-bottom: 40px;
-     
-     
-    }
-form{
-  
+
+.formWrapper {
+    width: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
-textarea,input:not([type='submit']){
-height: 50px;
-padding-left: 16px;
-width: 250px;
-
+.formGroup {
+    width: 100%;
 }
 
-textarea{
-    padding-top: 16px;
-    resize: none;
-    height: 250px;
+input:not([type="submit"]),
+textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 15px 20px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
 }
 
-input,textarea{
-    border-radius:20px;
-    border: #888 1px solid;
-    box-sizing: border-box;
-    justify-self: center;
-    background-color: var(--background-color);
-    color: var(--form-text-color);
-}
-/* ::placeholder{
-    color: var(--form-text-color);
-} */
-
-input[type='submit']{
-     background-color: var(--btn-color);
-        color: var(--btn-text-color);
-        border: none;
-        border-radius:20px ;
-        width: 126px;
-        height: 50px;
-        font-size: 20px;
-        font-weight: bold;
-        box-shadow: 0 4px 4px rgba(0,0,0,0.25);
-        transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-        margin: auto;
+[data-theme="dark"] input:not([type="submit"]),
+[data-theme="dark"] textarea {
+    background: rgba(255, 255, 255, 0.05);
 }
 
-input[type='submit']:hover{
-    transform: scale(1.05);
-   
+input:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    background: transparent;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
-input[type='submit']:active{
-    transform: translateY(2px);
-     box-shadow: 0 2px 2px rgba(0,0,0,0.25);
-   
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
 }
-@media (width >= 800px) {
-    textarea,input:not([type='submit']){
-        width: 600px;
-        font-size: 20px;
+
+.submitBtn {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    margin-top: 10px;
+    align-self: center;
+}
+
+@media (max-width: 600px) {
+    .formWrapper {
+        padding: 24px;
     }
-    form{
-        gap: 40px;
-    }
-}
-@media (width >= 1400px) {
-    textarea,input:not([type='submit']){
-        width: 800px;
-        font-size: 20px;
-    }
-   
 }

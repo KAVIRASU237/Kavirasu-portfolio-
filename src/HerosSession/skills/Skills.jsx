@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import styles from "./SkillsStyles.module.css";
 import checkIconDark from "../../images/icons8-tick-64.png";
 import checkIconLight from "../../images/icons8-tick-64 (1).png";
@@ -7,33 +8,76 @@ import { useTheme } from "../common/ThemeContext";
 
 function Skills() {
   const { theme } = useTheme();
-  const Theme = theme === "dark" ? checkIconLight : checkIconDark;
+  const themeIcon = theme === "dark" ? checkIconLight : checkIconDark;
 
-  const skills = [
-    { name: "Java", level: 90 },
-    { name: "C++", level: 85 },
-    { name: "C", level: 80 },
-    { name: "Python", level: 75 },
-    { name: "HTML", level: 95 },
-    { name: "CSS", level: 90 },
-    { name: "JavaScript", level: 85 },
-    { name: "React", level: 80 },
-    { name: "Redux", level: 70 },
+  const skillCategories = [
+    {
+      title: "Languages",
+      skills: ["Java", "C++", "C", "Python", "JavaScript", "SQL"]
+    },
+    {
+      title: "Web Development",
+      skills: ["HTML", "CSS", "React", "Redux", "Bootstrap", "Tailwind CSS", "Node.js"]
+    },
+    {
+      title: "AI Technologies",
+      skills: ["LLM", "RAG", "Langchain", "n8n", "Antigravity", "Machine Learning"]
+    },
+    {
+      title: "Tools & Others",
+      skills: ["Git", "GitHub", "VS Code", "Vite", "Firebase", "Unit Testing", "Responsive Design"]
+    }
   ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
 
   return (
     <section id="skills" className={styles.container}>
-      <h1>Skills</h1>
-      <div className={styles.skillsList}>
-        {skills.map((skill, index) => (
-          <SkillList
+      <motion.h1
+        className="sectionTitle"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        Skills
+      </motion.h1>
+
+      <motion.div
+        className={styles.skillsWrapper}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {skillCategories.map((category, index) => (
+          <motion.div
             key={index}
-            src={Theme} // Fixed: Now `Theme` is a valid image source
-            skill={skill.name}
-            level={skill.level}
-          />
+            className={styles.skillCategory}
+            variants={itemVariants}
+          >
+            <h3 className={styles.categoryTitle}>{category.title}</h3>
+            <div className={styles.skillList}>
+              {category.skills.map((skill, idx) => (
+                <SkillList key={idx} src={themeIcon} skill={skill} />
+              ))}
+            </div>
+            {index < skillCategories.length - 1 && <div className={styles.divider} />}
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -3,14 +3,14 @@ import styles from "./FooterStyles.module.css";
 
 function Footer() {
   return (
-    <section id="footer" className={styles.container}>
-      <hr></hr>
+    <footer className={styles.container}>
+      <div className={styles.divider} />
       <p>
-        &copy; 2025 Kavirasu.
+        &copy; {new Date().getFullYear()} Kavirasu.
         <br />
-        All rights reserved
+        Built with React & Framer Motion
       </p>
-    </section>
+    </footer>
   );
 }
 

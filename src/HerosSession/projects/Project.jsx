@@ -6,6 +6,8 @@ import smartScaller from '../../images/smartScaller.jpg'
 import todolist from '../../images/todolistlogo.jpg'
 import calculator from '../../images/calculator logo.webp'
 import portfolioLogo from '../../images/portfolioWebLogo.jpg'
+import kaveririceshop from '../../images/kaveririceshop.png'
+import chatsql from '../../images/chatsqlscreenshot.png'
 const Project = () => {
   return (
     <>
@@ -18,6 +20,20 @@ const Project = () => {
             h3="PORTFOLIO"
             p=""
             alt="PORTFOLIO LOGO"
+          />
+          <ProjectCard
+            src={chatsql}
+            link="https://github.com/KAVIRASU237/chat-SQL"
+            h3="ChatSQL"
+            p=""
+            alt="ChatSQL LOGO"
+          />
+          <ProjectCard
+            src={kaveririceshop}
+            link="https://kaveri-rice-shop.vercel.app/"
+            h3="Kaveri Rice Shop"
+            p=""
+            alt="Kaveri Rice Shop"
           />
           <ProjectCard
             src={QRcodegenerator}
@@ -42,7 +58,7 @@ const Project = () => {
           />
           <ProjectCard
             src={calculator}
-            link="https://github.com/KAVIRASU237/To-Do-List"
+            link="https://github.com/KAVIRASU237/calculator"
             h3="calculator"
             p="arthmetic operations"
             alt="calculator logo"

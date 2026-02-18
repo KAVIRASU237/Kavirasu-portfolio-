@@ -81,7 +81,7 @@ const Hero = () => {
       >
         <motion.h1 variants={itemVariants}>kavirasu</motion.h1>
         <motion.h2 variants={itemVariants} className={styles.titleGradient}>
-          Computer Science Student (Pre Final Year)
+          Computer Science Student
         </motion.h2>
 
         <motion.div variants={itemVariants} className={styles.socialContainer}>

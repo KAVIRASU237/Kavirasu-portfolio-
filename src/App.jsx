@@ -40,7 +40,7 @@ import Footer from "./HerosSession/Footer/Footer";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Kavirasu-portfolio-">
       <Navbar />
       <AnimatedRoutes />
       <Footer />

@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
     background: transparent;
 }
@@ -8,13 +8,18 @@
 .divider {
     width: 100%;
     max-width: 1200px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--glass-border), transparent);
-    margin: 0 auto 30px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--secondary-color), var(--primary-color), var(--secondary-color), transparent);
+    box-shadow: 0 0 10px var(--primary-color);
+    margin: 0 auto 40px;
 }
 
 .container p {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.8;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    opacity: 0.8;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 2;
 }

@@ -8,7 +8,7 @@ function Footer() {
       <p>
         &copy; {new Date().getFullYear()} Kavirasu.
         <br />
-        Built with React & Framer Motion
+
       </p>
     </footer>
   );

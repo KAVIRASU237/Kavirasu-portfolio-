@@ -50,13 +50,6 @@ const Project = () => {
             p="generator"
             alt="QR"
           />
-          {/* <ProjectCard
-            src={smartScaller}
-            link="https://www.google.com/"
-            h3="Smart Scaler"
-            p="Converts Kg 🔄️ price"
-            alt="Smart scaler logo"
-          /> */}
           <ProjectCard
             src={todolist}
             link="https://github.com/KAVIRASU237/To-Do-List"

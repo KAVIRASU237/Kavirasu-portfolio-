@@ -66,23 +66,40 @@ const Navbar = () => {
         {isOpen && (
           <motion.div
             className="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "100vh" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
           >
             <ul>
-              {navLinks.map((link) => (
+              {navLinks.map((link, index) => (
                 <motion.li
                   key={link.name}
-                  initial={{ x: -20, opacity: 0 }}
+                  initial={{ x: 20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <Link to={link.path} onClick={() => setIsOpen(false)}>
+                  <Link 
+                    to={link.path} 
+                    onClick={() => setIsOpen(false)}
+                    className={location.pathname === link.path ? "active" : ""}
+                  >
                     {link.name}
                   </Link>
                 </motion.li>
               ))}
             </ul>
+
+            {/* Close button for extra usability */}
+            <motion.div 
+              className="close-menu"
+              onClick={() => setIsOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              CLOSE
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

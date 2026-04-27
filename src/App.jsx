@@ -1,12 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./App.css";
-import Hero from "./HerosSession/Hero";
-import Project from "./HerosSession/projects/Project";
-import Skills from "./HerosSession/skills/Skills";
-import Contact from "./HerosSession/contact/Contact";
-import Navbar from "./Navbar";
+
+const Hero = lazy(() => import("./HerosSession/Hero"));
+const Project = lazy(() => import("./HerosSession/projects/Project"));
+const Skills = lazy(() => import("./HerosSession/skills/Skills"));
+const Contact = lazy(() => import("./HerosSession/contact/Contact"));
+const Navbar = lazy(() => import("./Navbar"));
+const Background3D = lazy(() => import("./components/Background3D"));
+const Footer = lazy(() => import("./HerosSession/Footer/Footer"));
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -36,14 +39,15 @@ const PageWrapper = ({ children }) => (
   </motion.main>
 );
 
-import Footer from "./HerosSession/Footer/Footer";
-
 const App = () => {
   return (
     <BrowserRouter basename="/Kavirasu-portfolio-">
-      <Navbar />
-      <AnimatedRoutes />
-      <Footer />
+      <Suspense fallback={<div className="loading-placeholder" />}>
+        <Background3D />
+        <Navbar />
+        <AnimatedRoutes />
+        <Footer />
+      </Suspense>
     </BrowserRouter>
   );
 };

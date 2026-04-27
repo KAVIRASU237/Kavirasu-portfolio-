@@ -1,0 +1,120 @@
+import React, { useEffect, useState } from 'react';
+import './Background3D.css';
+import UFOBackgroundCanvas from './UFOBackgroundCanvas';
+import SatelliteBackground from './SatelliteBackground';
+
+const Meteors = () => {
+    const [meteors, setMeteors] = useState([]);
+  
+    useEffect(() => {
+      const spawnMeteor = () => {
+        const id = Math.random();
+        const colors = ['#FFFF00', '#FFFFFF', '#FFA500', '#FF4500'];
+        
+        const side = Math.floor(Math.random() * 3);
+        let top, left, angle;
+  
+        if (side === 0) { // Top
+          top = '-5%';
+          left = Math.random() * 100 + '%';
+          angle = '45deg';
+        } else if (side === 1) { // Right
+          top = Math.random() * 50 + '%';
+          left = '105%';
+          angle = '225deg';
+        } else { // Left
+          top = Math.random() * 50 + '%';
+          left = '-5%';
+          angle = '45deg';
+        }
+  
+        const newMeteor = {
+          id,
+          top,
+          left,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          angle,
+        };
+        setMeteors(prev => [...prev, newMeteor]);
+        setTimeout(() => {
+          setMeteors(prev => prev.filter(m => m.id !== id));
+        }, 2000);
+      };
+  
+      const interval = setInterval(spawnMeteor, 5000);
+      return () => clearInterval(interval);
+    }, []);
+  
+    return (
+      <div className="meteors-layer">
+        {meteors.map(m => (
+          <div
+            key={m.id}
+            className="meteor"
+            style={{
+              top: m.top,
+              left: m.left,
+              '--meteor-color': m.color,
+              '--meteor-angle': m.angle,
+            }}
+          />
+        ))}
+      </div>
+    );
+  };
+
+const generateStars = (count) => {
+  let stars = "";
+  for (let i = 0; i < count; i++) {
+    const x = Math.floor(Math.random() * 2000);
+    const y = Math.floor(Math.random() * 2000);
+    const colors = ["#FFF", "#f2e107", "#ffd700", "#FFF", "#FFA500"];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    stars += `${x}px ${y}px ${color}${i === count - 1 ? "" : ","}`;
+  }
+  return stars;
+};
+
+const StarLayer = ({ count, size, duration, glow }) => {
+  const [starsShadow, setStarsShadow] = useState("");
+
+  useEffect(() => {
+    setStarsShadow(generateStars(count));
+  }, [count]);
+
+  return (
+    <div
+      className="stars-layer"
+      style={{
+        width: size + "px",
+        height: size + "px",
+        boxShadow: starsShadow,
+        animation: `animStar ${duration}s linear infinite`,
+        filter: glow ? `drop-shadow(0 0 ${glow}px #f2e107)` : "none",
+        opacity: Math.random() * 0.5 + 0.5,
+      }}
+    />
+  );
+};
+
+const Background3D = () => {
+  return (
+    <div className="anime-background">
+      <SatelliteBackground />
+      <UFOBackgroundCanvas />
+      <Meteors />
+      <div className="stars-container">
+        <StarLayer count={500} size={1} duration={120} />
+        <StarLayer count={250} size={2} duration={90} glow={1} />
+        <StarLayer count={150} size={2} duration={70} glow={3} />
+        <StarLayer count={80} size={3} duration={50} glow={5} />
+      </div>
+      <div className="nebula"></div>
+      <div className="glow-overlay"></div>
+    </div>
+  );
+};
+
+
+
+export default Background3D;

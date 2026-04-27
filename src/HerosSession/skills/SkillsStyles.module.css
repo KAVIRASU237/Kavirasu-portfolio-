@@ -5,7 +5,8 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 40px 20px;
+    background: #050505;
 }
 
 .skillsWrapper {
@@ -20,14 +21,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
+    position: relative;
 }
 
 .categoryTitle {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 800;
     color: var(--primary-color);
-    letter-spacing: 1px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(242, 225, 7, 0.4);
+    position: relative;
+}
+
+.categoryTitle::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #f2e107;
 }
 
 .skillList {
@@ -41,44 +57,48 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    padding: 12px 24px;
-    border-radius: 100px;
-    box-shadow: var(--shadow);
+    background: #111;
+    border: 1px solid rgba(242, 225, 7, 0.15);
+    padding: 12px 25px;
+    border-radius: 0; 
     cursor: default;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skillItem:hover {
+    background: #f2e107;
+    box-shadow: 0 0 20px rgba(242, 225, 7, 0.2);
+    transform: translateY(-5px);
+}
+
+.skillItem:hover p {
+    color: #000;
 }
 
 .skillItem img {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+    filter: brightness(0) invert(1);
+}
+
+.skillItem:hover img {
+    filter: brightness(0);
 }
 
 .skillItem p {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text-color);
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-weight: 800;
+    color: #fff;
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .divider {
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--glass-border), transparent);
-    margin-top: 20px;
-}
-
-@media (max-width: 600px) {
-    .categoryTitle {
-        font-size: 1.4rem;
-    }
-
-    .skillItem {
-        padding: 10px 20px;
-    }
-
-    .skillItem p {
-        font-size: 1rem;
-    }
+    background: rgba(242, 225, 7, 0.05);
+    margin-top: 30px;
 }

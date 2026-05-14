@@ -25,6 +25,7 @@
     right: 0;
     bottom: 0;
     background: transparent;
+    will-change: transform;
 }
 
 .stars-layer:after {
@@ -87,6 +88,7 @@
     transform: rotate(var(--meteor-angle));
     animation: meteorAnim 1.2s cubic-bezier(0.4, 0, 1, 1) forwards;
     opacity: 0;
+    will-change: transform;
 }
 
 .meteor::after {

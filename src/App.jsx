@@ -7,10 +7,10 @@ const Hero = lazy(() => import("./HerosSession/Hero"));
 const Project = lazy(() => import("./HerosSession/projects/Project"));
 const Skills = lazy(() => import("./HerosSession/skills/Skills"));
 const Contact = lazy(() => import("./HerosSession/contact/Contact"));
+const About = lazy(() => import("./HerosSession/about/About"));
 const Navbar = lazy(() => import("./Navbar"));
 const Background3D = lazy(() => import("./components/Background3D"));
 const Footer = lazy(() => import("./HerosSession/Footer/Footer"));
-import MeteorCursor from "./components/MeteorCursor";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -21,6 +21,7 @@ const AnimatedRoutes = () => {
         <Route index element={<PageWrapper><Hero /></PageWrapper>} />
         <Route path="/" element={<PageWrapper><Hero /></PageWrapper>} />
         <Route path="/Projects" element={<PageWrapper><Project /></PageWrapper>} />
+        <Route path="/About" element={<PageWrapper><About /></PageWrapper>} />
         <Route path="/Skills" element={<PageWrapper><Skills /></PageWrapper>} />
         <Route path="/Contact" element={<PageWrapper><Contact /></PageWrapper>} />
         <Route path="*" element={<Navigate to="/" />} />
@@ -44,7 +45,6 @@ const App = () => {
   return (
     <BrowserRouter basename="/Kavirasu-portfolio-">
       <Suspense fallback={<div className="loading-placeholder" />}>
-        <MeteorCursor />
         <Background3D />
         <Navbar />
         <AnimatedRoutes />

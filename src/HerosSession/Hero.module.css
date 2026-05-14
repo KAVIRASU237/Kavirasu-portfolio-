@@ -60,6 +60,7 @@
     animation: breathing 4.5s ease-in-out infinite;
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent),
                 linear-gradient(to bottom, black 80%, transparent);
+    will-change: transform;
 }
 
 .glowLayer {
@@ -74,6 +75,7 @@
         hue-rotate(10deg)
         saturate(5);
     animation: softEyePulse 4s infinite, breathing 4.5s ease-in-out infinite;
+    will-change: transform, opacity;
 }
 
 .aura {
@@ -87,6 +89,7 @@
     );
     filter: blur(15px);
     animation: auraPulse 4s ease-in-out infinite;
+    will-change: transform, opacity;
 }
 
 /* KEYFRAMES */
@@ -162,6 +165,7 @@
         -1px 1px 0px #f2e107,
         1px 1px 0px #f2e107;
     color: #000;
+    white-space: nowrap;
 }
 
 .titleGradient {
@@ -198,7 +202,7 @@
     width: 48px;
     height: 48px;
     background: var(--primary-color);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s ease, box-shadow 0.4s ease;
     box-shadow: 0 4px 15px rgba(242, 225, 7, 0.3);
     border: 2px solid var(--primary-color);
 }
@@ -213,7 +217,7 @@
     width: 22px;
     height: 22px;
     filter: brightness(0);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .socialContainer a:hover img {
@@ -239,7 +243,7 @@
     text-transform: uppercase;
     letter-spacing: 0.2em;
     border-radius: 0;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.05);
     margin-top: 10px;
@@ -279,9 +283,16 @@
         mask-image: linear-gradient(to bottom, black 85%, transparent);
     }
 
+    .titleInfo {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
     .titleInfo h1 {
-        font-size: clamp(2.5rem, 12vw, 3.8rem);
+        font-size: clamp(1.8rem, 10vw, 3.2rem);
         letter-spacing: 0.05em;
+        white-space: nowrap;
     }
 
     .titleGradient {
@@ -323,5 +334,47 @@
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
         letter-spacing: 0.1em;
+    }
+}
+
+@media (max-width: 600px) {
+    .contentWrapper {
+        padding: 60px 15px 30px;
+        gap: 15px;
+    }
+
+    .titleInfo h1 {
+        font-size: clamp(1.5rem, 12vw, 2.5rem);
+        letter-spacing: 0.02em;
+        white-space: normal; /* Allow wrap if necessary */
+    }
+
+    .titleGradient {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .titleGradient::after {
+        display: none;
+    }
+
+    .socialContainer {
+        gap: 0.8rem;
+    }
+
+    .socialContainer a {
+        width: 40px;
+        height: 40px;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .characterContainer {
+        width: 90vw;
     }
 }

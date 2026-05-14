@@ -25,22 +25,22 @@ const Project = () => {
           <ProjectCard
             src={chatsql}
             link="https://github.com/KAVIRASU237/chat-SQL"
-            h3="ChatSQL"
-            p="Offline Natural Language → SQL assistant (RAG + Local LLM)"
+            h3="ChatSQL (AI-RAG)"
+            p="Offline Natural Language → SQL assistant using RAG & Local LLMs."
             alt="ChatSQL LOGO"
           />
           <ProjectCard
             src={kaveririceshop}
             link="https://kaveri-rice-shop.vercel.app/"
-            h3="Kaveri Rice Shop"
-            p="Products selling website for Local shop"
-            alt="Kaveri Rice Shop"
+            h3="AI-Powered Shop Platform"
+            p="Full-stack e-commerce with secure JWT auth, admin dashboard, inventory management, and modern UX architecture using Node.js and MongoDB."
+            alt="AI-Powered Shop"
           />
           <ProjectCard
             src={aura}
             link="https://github.com/KAVIRASU237/Personal-tasks"
-            h3="Aura"
-            p="Personal tasks and management"
+            h3="Aura AI"
+            p="Intelligent task management system with automation workflows."
             alt="Aura"
           />
           <ProjectCard

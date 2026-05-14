@@ -21,7 +21,7 @@ const ProjectCard = ({ src, link, h3, p, alt }) => {
       viewport={{ once: true }}
     >
       <div className={styles.imageOverlay}>
-        <img src={src} alt={alt} />
+        <img src={src} alt={alt} loading="lazy" decoding="async" />
       </div>
       <div className={styles.cardContent}>
         <h3>{h3}</h3>

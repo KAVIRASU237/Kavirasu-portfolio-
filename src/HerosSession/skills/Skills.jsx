@@ -16,16 +16,16 @@ function Skills() {
       skills: ["Java", "C++", "C", "Python", "JavaScript", "SQL"]
     },
     {
-      title: "Web Development",
-      skills: ["HTML", "CSS", "React", "Redux", "Bootstrap", "Tailwind CSS", "Node.js"]
+      title: "Web & Full Stack",
+      skills: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Redux", "Bootstrap"]
     },
     {
-      title: "AI Technologies",
-      skills: ["LLM", "RAG", "Langchain", "n8n", "Antigravity", "Machine Learning"]
+      title: "AI & Automation",
+      skills: ["LLM Integration", "RAG Systems", "Langchain", "n8n Automation", "Python AI", "Machine Learning"]
     },
     {
-      title: "Tools & Others",
-      skills: ["Git", "GitHub", "VS Code", "Vite", "Firebase", "Unit Testing", "Responsive Design"]
+      title: "Core Engineering",
+      skills: ["Backend Security", "API Design", "Database Optimization", "Scalable Architectures", "Git", "GitHub"]
     }
   ];
 

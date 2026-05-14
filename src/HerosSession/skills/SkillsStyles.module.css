@@ -62,19 +62,20 @@
     padding: 12px 25px;
     border-radius: 0; 
     cursor: default;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: background 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
 }
 
 .skillItem:hover {
-    background: #f2e107;
-    box-shadow: 0 0 20px rgba(242, 225, 7, 0.2);
+    background: #1a1a1a;
+    border-color: #f2e107;
+    box-shadow: 0 5px 15px rgba(242, 225, 7, 0.1);
     transform: translateY(-5px);
 }
 
 .skillItem:hover p {
-    color: #000;
+    color: #f2e107;
 }
 
 .skillItem img {
@@ -84,7 +85,7 @@
 }
 
 .skillItem:hover img {
-    filter: brightness(0);
+    filter: brightness(0) saturate(100%) invert(88%) sepia(82%) font-weight(700) hue-rotate(352deg) brightness(101%) contrast(101%);
 }
 
 .skillItem p {
@@ -101,4 +102,15 @@
     height: 1px;
     background: rgba(242, 225, 7, 0.05);
     margin-top: 30px;
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 100px 15px 40px;
+    }
+    .skillsWrapper {
+        gap: 40px;
+    }
+    .skillItem {
+        padding: 10px 20px;
+    }
 }

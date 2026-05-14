@@ -19,6 +19,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Projects", path: "/Projects" },
+    { name: "About", path: "/About" },
     { name: "Skills", path: "/Skills" },
     { name: "Contact", path: "/Contact" },
   ];
@@ -27,12 +28,14 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <motion.h2
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+          <motion.div
+            className="logo-box"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
           >
-            KAVIRASU
-          </motion.h2>
+            K
+          </motion.div>
         </Link>
 
         {/* Desktop Menu */}

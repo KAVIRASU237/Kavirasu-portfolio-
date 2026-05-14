@@ -45,9 +45,9 @@ const Hero = () => {
         {/* Left Column: All Text Content */}
         <div className={styles.leftColumn}>
           <div className={styles.titleInfo}>
-            <motion.h1 variants={itemVariants}>KAVIRASU</motion.h1>
+            <motion.h1 variants={itemVariants}>KAVIRASU C</motion.h1>
             <motion.h2 variants={itemVariants} className={styles.titleGradient}>
-              Computer Science Student
+              AI-Powered Full Stack Developer | Automation Engineer | React & Node.js Developer
             </motion.h2>
           </div>
 
@@ -60,8 +60,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.p className={styles.description} variants={itemVariants}>
-            I'm a passionate web developer building responsive, user-friendly websites.
-            Specializing in creating modern digital experiences with the MERN stack.
+            I build scalable full-stack applications, intelligent AI systems, and automation-driven software specializing in React, Node.js, and Large Language Models (LLMs).
           </motion.p>
 
           <a href={resumeFile} download="Kavirasu_Resume.pdf">
@@ -83,6 +82,9 @@ const Hero = () => {
               src={yourCharacter} 
               className={styles.character} 
               alt="Animated Samurai Character"
+              fetchpriority="high"
+              decoding="async"
+              loading="eager"
             />
             
             {/* Yellow Glow Layer */}
@@ -90,6 +92,8 @@ const Hero = () => {
               src={yourCharacter} 
               className={styles.glowLayer} 
               aria-hidden="true"
+              decoding="async"
+              loading="eager"
             />
             
             {/* Soft Aura */}

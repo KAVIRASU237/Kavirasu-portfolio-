@@ -25,7 +25,7 @@
     max-width: 320px;
     display: flex;
     flex-direction: column;
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     text-decoration: none;
     position: relative;
     border-radius: 0;
@@ -65,7 +65,7 @@
     height: 100%;
     object-fit: cover;
     filter: grayscale(100%) contrast(1.2);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.6s ease;
 }
 
 .projectCard:hover .imageOverlay img {
@@ -97,5 +97,25 @@
 @media (max-width: 600px) {
     .projectCard {
         max-width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 100px 15px 40px;
+    }
+    .projectsContainer {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .projectCard {
+        max-width: 100%;
+    }
+    .imageOverlay {
+        height: 200px;
+    }
+    .cardContent {
+        padding: 15px;
     }
 }

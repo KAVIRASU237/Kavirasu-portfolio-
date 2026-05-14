@@ -64,6 +64,7 @@ const MeteorCursor = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 filter: "drop-shadow(0 0 5px #fff000)",
+                willChange: "transform",
               }}
               animate={{
                 scale: isClicking ? 0.8 : 1,

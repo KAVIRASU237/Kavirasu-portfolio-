@@ -38,7 +38,7 @@ textarea {
     color: var(--text-color);
     font-family: inherit;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     outline: none;
 }
 
@@ -65,7 +65,7 @@ textarea {
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     align-self: center;
 }
 
@@ -79,5 +79,14 @@ textarea {
 @media (max-width: 600px) {
     .formWrapper {
         padding: 24px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 100px 15px 40px;
+    }
+    .formWrapper {
+        padding: 20px;
+        border-width: 1px;
     }
 }

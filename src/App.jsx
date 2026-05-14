@@ -10,6 +10,7 @@ const Contact = lazy(() => import("./HerosSession/contact/Contact"));
 const Navbar = lazy(() => import("./Navbar"));
 const Background3D = lazy(() => import("./components/Background3D"));
 const Footer = lazy(() => import("./HerosSession/Footer/Footer"));
+import MeteorCursor from "./components/MeteorCursor";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -43,6 +44,7 @@ const App = () => {
   return (
     <BrowserRouter basename="/Kavirasu-portfolio-">
       <Suspense fallback={<div className="loading-placeholder" />}>
+        <MeteorCursor />
         <Background3D />
         <Navbar />
         <AnimatedRoutes />

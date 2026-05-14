@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kavirasu237.github.io/Kavirasu-portfolio-/sitemap.xml

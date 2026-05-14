@@ -1,1 +1,0 @@
-import{j as e}from"./index-98a2gBwL.js";const s="_container_38wrm_1",i="_divider_38wrm_15",r={container:s,divider:i};function n(){return e.jsxs("footer",{className:r.container,children:[e.jsx("div",{className:r.divider}),e.jsxs("p",{children:["© ",new Date().getFullYear()," Kavirasu.",e.jsx("br",{})]})]})}export{n as default};

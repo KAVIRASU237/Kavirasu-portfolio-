@@ -1,0 +1,1 @@
+import{j as e}from"./index-BEtCbPjz.js";const t="_container_38wrm_1",i="_divider_38wrm_15",r={container:t,divider:i};function s(){return e.jsxs("footer",{className:r.container,children:[e.jsx("div",{className:r.divider}),e.jsxs("p",{children:["© ",new Date().getFullYear()," Kavirasu C.",e.jsx("br",{}),"AI Full Stack Developer & Automation Engineer"]})]})}export{s as default};

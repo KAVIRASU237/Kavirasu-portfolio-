@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 30px 20px;
 }
 
 .formWrapper {
@@ -13,7 +13,7 @@
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(15px);
     border: 2px solid var(--primary-color);
-    padding: clamp(20px, 5vw, 40px);
+    padding: clamp(15px, 4vw, 30px);
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(242, 225, 7, 0.2);
 }
@@ -51,7 +51,7 @@ textarea:focus {
 
 textarea {
     resize: vertical;
-    min-height: clamp(100px, 15vh, 150px);
+    min-height: clamp(80px, 12vh, 120px);
 }
 
 .submitBtn {
@@ -83,7 +83,7 @@ textarea {
 }
 @media (max-width: 768px) {
     .container {
-        padding: 100px 15px 40px;
+        padding: 80px 15px 30px;
     }
     .formWrapper {
         padding: 20px;

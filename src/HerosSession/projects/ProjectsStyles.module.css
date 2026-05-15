@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 20px;
 }
 
 .projectsContainer {
@@ -14,7 +14,7 @@
     flex-wrap: wrap;
     gap: 30px;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .projectCard {

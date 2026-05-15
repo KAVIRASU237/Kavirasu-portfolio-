@@ -77,6 +77,11 @@ const generateStars = (count) => {
 
 const StarLayer = ({ count, size, duration, glow }) => {
   const [starsShadow, setStarsShadow] = useState("");
+  // Fixed randomized values for this instance
+  const [twinkleData] = useState({
+    duration: (Math.random() * 3 + 2).toFixed(2),
+    delay: (Math.random() * 5).toFixed(2)
+  });
 
   useEffect(() => {
     setStarsShadow(generateStars(count));
@@ -89,9 +94,8 @@ const StarLayer = ({ count, size, duration, glow }) => {
         width: size + "px",
         height: size + "px",
         boxShadow: starsShadow,
-        animation: `animStar ${duration}s linear infinite`,
+        animation: `animStar ${duration}s linear infinite, twinkle ${twinkleData.duration}s ease-in-out ${twinkleData.delay}s infinite`,
         filter: glow ? `drop-shadow(0 0 ${glow}px #f2e107)` : "none",
-        opacity: Math.random() * 0.5 + 0.5,
       }}
     />
   );

@@ -1,33 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import "./NavbarStyle.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+
+
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      const sections = ["hero", "about", "projects", "skills", "contact"];
+      const scrollPosition = window.scrollY + 200; // Offset for better detection
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Projects", path: "/Projects" },
-    { name: "About", path: "/About" },
-    { name: "Skills", path: "/Skills" },
-    { name: "Contact", path: "/Contact" },
+    { name: "Home", path: "#hero", id: "hero" },
+    { name: "About", path: "#about", id: "about" },
+    { name: "Projects", path: "#projects", id: "projects" },
+    { name: "Skills", path: "#skills", id: "skills" },
+    { name: "Contact", path: "#contact", id: "contact" },
   ];
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
+        <a href="#hero" className="nav-logo" onClick={() => setActiveSection("hero")}>
           <motion.div
             className="logo-box"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -36,24 +52,25 @@ const Navbar = () => {
           >
             K
           </motion.div>
-        </Link>
+        </a>
 
         {/* Desktop Menu */}
         <ul className="nav-links desktop">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <Link
-                to={link.path}
-                className={location.pathname === link.path ? "active" : ""}
+              <a
+                href={link.path}
+                className={activeSection === link.id ? "active" : ""}
+                onClick={() => setActiveSection(link.id)}
               >
                 {link.name}
-                {location.pathname === link.path && (
+                {activeSection === link.id && (
                   <motion.div
                     layoutId="underline"
                     className="underline"
                   />
                 )}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
@@ -82,13 +99,16 @@ const Navbar = () => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link 
-                    to={link.path} 
-                    onClick={() => setIsOpen(false)}
-                    className={location.pathname === link.path ? "active" : ""}
+                  <a 
+                    href={link.path} 
+                    onClick={() => {
+                      setIsOpen(false);
+                      setActiveSection(link.id);
+                    }}
+                    className={activeSection === link.id ? "active" : ""}
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </motion.li>
               ))}
             </ul>

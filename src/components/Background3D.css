@@ -43,6 +43,11 @@
     to { transform: translateY(-2000px); }
 }
 
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; filter: brightness(0.8); }
+    50% { opacity: 1; filter: brightness(1.2); }
+}
+
 .nebula {
     position: absolute;
     top: -50%;

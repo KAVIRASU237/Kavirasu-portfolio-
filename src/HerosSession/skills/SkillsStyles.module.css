@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 20px;
     background: #050505;
 }
 
@@ -13,7 +13,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 40px;
 }
 
 .skillCategory {
@@ -26,10 +26,10 @@
 }
 
 .categoryTitle {
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
     font-weight: 800;
     color: var(--primary-color);
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     text-shadow: 0 0 10px rgba(242, 225, 7, 0.4);
     position: relative;
@@ -38,10 +38,10 @@
 .categoryTitle::after {
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
+    width: 30px;
     height: 2px;
     background: #f2e107;
 }
@@ -50,16 +50,16 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 }
 
 .skillItem {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     background: #111;
     border: 1px solid rgba(242, 225, 7, 0.15);
-    padding: 12px 25px;
+    padding: 8px 18px;
     border-radius: 0; 
     cursor: default;
     transition: background 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -79,8 +79,8 @@
 }
 
 .skillItem img {
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
     filter: brightness(0) invert(1);
 }
 
@@ -89,28 +89,28 @@
 }
 
 .skillItem p {
-    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-size: 0.85rem;
     font-weight: 800;
     color: #fff;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .divider {
     width: 100%;
     height: 1px;
     background: rgba(242, 225, 7, 0.05);
-    margin-top: 30px;
+    margin-top: 20px;
 }
 @media (max-width: 768px) {
     .container {
-        padding: 100px 15px 40px;
+        padding: 60px 15px 30px;
     }
     .skillsWrapper {
-        gap: 40px;
+        gap: 30px;
     }
     .skillItem {
-        padding: 10px 20px;
+        padding: 6px 14px;
     }
 }

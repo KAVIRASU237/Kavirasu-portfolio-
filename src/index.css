@@ -25,11 +25,15 @@
     --shadow: 0 0 20px rgba(242, 225, 7, 0.3);
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -93,7 +97,7 @@ h6 {
 }
 
 h1 {
-    font-size: clamp(2rem, 7vw, 3.5rem);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 900;
     line-height: 1.1;
     letter-spacing: -0.01em;
@@ -101,7 +105,7 @@ h1 {
 }
 
 h2 {
-    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-size: clamp(1.4rem, 4vw, 2rem);
     font-weight: 800;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
@@ -136,10 +140,11 @@ button {
 .sectionTitle {
     position: relative;
     display: inline-block;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     padding-bottom: 0.5rem;
     text-align: center;
     width: 100%;
+    font-size: clamp(1.6rem, 4.5vw, 2.5rem);
 }
 
 .sectionTitle::after {

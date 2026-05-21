@@ -43,25 +43,26 @@
 .characterContainer {
     position: relative;
     width: clamp(280px, 40vw, 500px);
+    animation: characterGlitch 10s infinite steps(1); /* Cyber-glitch layer on the parent container */
 }
 
 .character {
     width: 100%;
     display: block;
-    transform-origin: bottom center;
-    animation: breathing 4.5s ease-in-out infinite, characterGlitch 3.5s infinite steps(1);
-    will-change: transform, filter, opacity;
+    transform-origin: center center; /* Float pivot from the center of the astronaut */
+    animation: astronautFloat 8s ease-in-out infinite; /* Weightless floating in space */
+    will-change: transform;
 }
 
 /* KEYFRAMES */
 
-/* Gentle Breathing: Slight rise and fall */
-@keyframes breathing {
-    0%, 100% { 
-        transform: translateY(0) scale(1); 
+/* Cinematic Weightless Astronaut Float */
+@keyframes astronautFloat {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
     }
-    50% { 
-        transform: translateY(-3px) scale(1.005); 
+    50% {
+        transform: translateY(-16px) translateX(6px) rotate(2.5deg);
     }
 }
 
@@ -148,12 +149,9 @@
     margin: 0;
     line-height: 1;
     text-shadow: 
-        1.5px 1.5px 0px #f2e107,
-        -1px -1px 0px #f2e107,
-        1px -1px 0px #f2e107,
-        -1px 1px 0px #f2e107,
-        1px 1px 0px #f2e107;
-    color: #000;
+        0 0 20px rgba(242, 225, 7, 0.35),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #f2e107;
     white-space: nowrap;
 }
 
@@ -181,7 +179,7 @@
 .professionText {
     font-size: clamp(1.2rem, 3vw, 2.2rem);
     font-weight: 800;
-    color: #ffe600;
+    color: #ffffff;
     letter-spacing: -0.02em;
     line-height: 1;
     position: relative;
@@ -232,7 +230,7 @@
     display: inline-block;
     width: 3px;
     height: clamp(1.2rem, 3vw, 2rem);
-    background: #ffe600;
+    background: #ffffff;
     margin-left: 6px;
     vertical-align: middle;
     border-radius: 1px;
@@ -265,6 +263,7 @@
     width: 48px;
     height: 48px;
     background: var(--primary-color);
+    border-radius: 12px; /* Curved edges */
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s ease, box-shadow 0.4s ease;
     box-shadow: 0 4px 15px rgba(242, 225, 7, 0.3);
     border: 2px solid var(--primary-color);
@@ -272,6 +271,7 @@
 
 .socialContainer a:hover {
     background: #fff;
+    border-color: #fff;
     transform: translateY(-5px) scale(1.1);
     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
 }
@@ -290,34 +290,66 @@
 .description {
     max-width: 450px;
     font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    color: #ccc;
+    color: #ffffff; /* Pure white ensures perfect difference inversion */
     line-height: 1.6;
     font-style: italic;
     margin: 0;
+    mix-blend-mode: difference;
+    position: relative;
+    z-index: 2; /* Ensures it sits over background canvases to blend correctly */
 }
 
-.leftColumn button {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-    padding: 0.8rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    border-radius: 0;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.05);
+.buttonGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
     margin-top: 10px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-.leftColumn button:hover {
+.primaryButton, .secondaryButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 12px; /* Curved edges */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.primaryButton {
     background: #f2e107;
-    color: #000;
-    border-color: #f2e107;
-    box-shadow: 0 0 40px rgba(242, 225, 7, 0.7);
-    transform: scale(1.05);
+    color: #000000;
+    border: 2px solid #f2e107;
+    box-shadow: 0 4px 15px rgba(242, 225, 7, 0.3);
+}
+
+.primaryButton:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(242, 225, 7, 0.6);
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.secondaryButton {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.secondaryButton:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 968px) {
@@ -384,19 +416,19 @@
         margin: 10px 0;
     }
 
-    .leftColumn > a {
+    .buttonGroup {
         width: 100%;
-        display: flex;
         justify-content: center;
+        gap: 12px;
     }
 
-    .leftColumn button {
-        width: 80%;
-        max-width: 280px;
-        min-width: max-content;
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-        letter-spacing: 0.1em;
+    .primaryButton, .secondaryButton {
+        width: calc(50% - 6px);
+        max-width: 200px;
+        min-width: 135px;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
     }
 }
 

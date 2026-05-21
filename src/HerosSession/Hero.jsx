@@ -6,7 +6,7 @@ import youtubelight from "../images/icons8-youtube-50 (1).png";
 import facebooklight from "../images/icons8-facebook-50 (1).png";
 import githublight from "../images/icons8-github-64 (1).png";
 import linkedinlight from "../images/icons8-linkedin-48 (1).png";
-import yourCharacter from '../images/cartoon-character-image-myself.png'
+import yourCharacter from '../images/astranaut-home-kavirasu.png'
 import resumeFile from '../images/kavirasu resume online.pdf'
 
 const Hero = () => {
@@ -62,6 +62,8 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [charIndex, isDeleting, profIndex, professions]);
 
+
+
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -88,7 +90,6 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        {/* Left Column: All Text Content */}
         <div className={styles.leftColumn}>
           <div className={styles.titleInfo}>
             <motion.h1 variants={itemVariants}>KAVIRASU C</motion.h1>
@@ -116,15 +117,23 @@ const Hero = () => {
             I engineer scalable full-stack applications, intelligent AI-driven systems, and high-performance automation, specializing in React, Node.js, and Large Language Models (LLMs).
           </motion.p>
 
-          <a href={resumeFile} download="Kavirasu_Resume.pdf">
-            <motion.button
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+          <motion.div className={styles.buttonGroup} variants={itemVariants}>
+            <a 
+              href={resumeFile} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={styles.primaryButton}
             >
-              RESUME
-            </motion.button>
-          </a>
+              View Resume
+            </a>
+            <a 
+              href={resumeFile} 
+              download="Kavirasu_Resume.pdf" 
+              className={styles.secondaryButton}
+            >
+              Download
+            </a>
+          </motion.div>
         </div>
 
         {/* Right Column: Animated Character */}

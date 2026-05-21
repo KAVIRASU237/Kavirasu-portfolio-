@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import styles from "./ProjectsStyles.module.css";
 import QRcodegenerator from "../../images/QRcodegenerator.png";
 import ProjectCard from '../common/ProjectCard';
-import smartScaller from '../../images/smartScaller.jpg'
 import todolist from '../../images/todolistlogo.jpg'
 import calculator from '../../images/calculator logo.webp'
 import portfolioLogo from '../../images/portfolioWebLogo.jpg'

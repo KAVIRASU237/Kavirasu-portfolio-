@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Background3D.css';
 import UFOBackgroundCanvas from './UFOBackgroundCanvas';
 import SatelliteBackground from './SatelliteBackground';
+import SpaceShipBackground from './SpaceShipBackground';
+import PlanetBackground3D from './PlanetBackground3D';
+
+
 
 const Meteors = () => {
     const [meteors, setMeteors] = useState([]);
@@ -68,7 +72,7 @@ const generateStars = (count) => {
   for (let i = 0; i < count; i++) {
     const x = Math.floor(Math.random() * 2000);
     const y = Math.floor(Math.random() * 2000);
-    const colors = ["#FFF", "#f2e107", "#ffd700", "#FFF", "#FFA500"];
+    const colors = ["#FFF", "#E2E8F0", "#F1F5F9", "#FFF"];
     const color = colors[Math.floor(Math.random() * colors.length)];
     stars += `${x}px ${y}px ${color}${i === count - 1 ? "" : ","}`;
   }
@@ -104,21 +108,16 @@ const StarLayer = ({ count, size, duration, glow }) => {
 const Background3D = () => {
   return (
     <div className="anime-background">
+      <PlanetBackground3D />
+      <SpaceShipBackground />
       <SatelliteBackground />
       <UFOBackgroundCanvas />
       <Meteors />
-      <div className="stars-container">
-        <StarLayer count={500} size={1} duration={120} />
-        <StarLayer count={250} size={2} duration={90} glow={1} />
-        <StarLayer count={150} size={2} duration={70} glow={3} />
-        <StarLayer count={80} size={3} duration={50} glow={5} />
-      </div>
       <div className="nebula"></div>
       <div className="glow-overlay"></div>
+      <div className="background-dimmer"></div>
     </div>
   );
 };
-
-
 
 export default Background3D;

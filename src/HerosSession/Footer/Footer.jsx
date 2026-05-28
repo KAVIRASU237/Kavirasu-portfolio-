@@ -38,9 +38,9 @@ function Footer() {
             {/* <a href="https://x.com/Kavirasu_C" target="_blank" rel="noopener noreferrer">
               <img src={twitterIcon} alt="Twitter" />
             </a> */}
-            <a href="https://www.youtube.com/@Kavirasu_C" target="_blank" rel="noopener noreferrer">
+            {/*<a href="https://www.youtube.com/@Kavirasu_C" target="_blank" rel="noopener noreferrer">
               <img src={youtubeIcon} alt="YouTube" />
-            </a>
+            </a> */}
             {/* <a href="https://www.facebook.com/profile.php?id=61572290333700&sk" target="_blank" rel="noopener noreferrer">
               <img src={facebookIcon} alt="Facebook" />
             </a> */}
